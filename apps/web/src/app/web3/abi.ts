@@ -1,4 +1,4 @@
 import type { Abi } from 'viem';
-import artifact from '@nftforge/contracts/artifacts/contracts/NFTForge.sol/NFTForge.json';
+import { NFTFORGE_ABI as ABI } from '@nftforge/contracts/src/abi';
 
-export const NFTFORGE_ABI = artifact.abi as Abi;
+export const NFTFORGE_ABI = ABI as Abi;
