@@ -33,4 +33,14 @@ export default defineConfig(({ mode }) => ({
       transformMixedEsModules: true,
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/web',
+      provider: 'v8',
+    },
+  },
 }));

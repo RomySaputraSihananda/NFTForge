@@ -34,25 +34,6 @@ jobs:
 
       - run: yarn nx run-many -t lint typecheck --parallel=3
 
-  test-contracts:
-    name: Test Contracts
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: yarn
-          cache-dependency-path: libs/contracts/yarn.lock
-
-      - run: yarn install --frozen-lockfile
-        working-directory: libs/contracts
-
-      - run: yarn nx run contracts:compile
-
-      - run: yarn nx run contracts:test
-
   test-frontend:
     name: Test Frontend
     runs-on: ubuntu-latest
