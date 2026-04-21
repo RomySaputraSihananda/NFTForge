@@ -1,0 +1,42 @@
+{
+  "name": "contracts",
+  "projectType": "library",
+  "targets": {
+    "compile": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/contracts",
+        "command": "yarn hardhat compile"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/contracts",
+        "command": "yarn hardhat test"
+      }
+    },
+    "node": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/contracts",
+        "command": "yarn hardhat node"
+      }
+    },
+    "deploy:local": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/contracts",
+        "command": "yarn hardhat ignition deploy ignition/modules/NFTForge.ts --network localhost"
+      }
+    },
+    "deploy:sepolia": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/contracts",
+        "command": "yarn hardhat ignition deploy ignition/modules/NFTForge.ts --network sepolia",
+        "envFile": "libs/contracts/.env"
+      }
+    }
+  }
+}
