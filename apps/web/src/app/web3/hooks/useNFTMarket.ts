@@ -24,7 +24,7 @@ export function useNFTMarket() {
     query: { refetchInterval: 12_000 },
   });
 
-  const count = totalSupply ? Number(totalSupply) : 0;
+  const count = totalSupply ? Number(totalSupply as bigint) : 0;
 
   const contracts = useMemo(() =>
     Array.from({ length: count }, (_, i) => [

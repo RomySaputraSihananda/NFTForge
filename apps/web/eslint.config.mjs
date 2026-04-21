@@ -7,6 +7,8 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     // Override or add rules here
-    rules: {},
+    rules: {
+      'no-empty': ['error', { allowEmptyCatch: true }],
+    },
   },
 ];

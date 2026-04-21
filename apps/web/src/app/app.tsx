@@ -141,7 +141,7 @@ export function App() {
                   <span className="font-mono text-xs text-neon-cyan tracking-wide">{shortAccount}</span>
                 </div>
                 <button
-                  onClick={disconnect}
+                  onClick={() => disconnect()}
                   className="hidden sm:block font-mono text-[9px] text-dim border border-white/10 px-2 py-1.5 hover:border-neon-pink/40 hover:text-neon-pink transition-colors cursor-pointer"
                 >
                   DISCONNECT

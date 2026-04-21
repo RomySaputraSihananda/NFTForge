@@ -52,9 +52,9 @@ export function useNFTForge() {
   };
 
   return {
-    totalSupply: totalSupply ?? null,
-    userBalance: userBalance ?? null,
-    mintPrice: mintPrice ?? null,
+    totalSupply: (totalSupply as bigint | undefined) ?? null,
+    userBalance: (userBalance as bigint | undefined) ?? null,
+    mintPrice: (mintPrice as bigint | undefined) ?? null,
     mint,
     minting: minting || waitingTx,
     mintSuccess,
