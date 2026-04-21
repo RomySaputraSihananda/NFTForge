@@ -104,8 +104,8 @@ describe("NFTForge", async function () {
       "Listed",
       [1n, getAddress(user1.account.address), SALE_PRICE],
     );
-    const listing = await contract.read.listings([1n]);
-    assert.equal(listing[2], true); 
+    const listing = await contract.read.listings([1n]) as [`0x${string}`, bigint, boolean];
+    assert.equal(listing[2], true);
     assert.equal(listing[1], SALE_PRICE);
   });
 
@@ -120,7 +120,7 @@ describe("NFTForge", async function () {
     await asUser1.write.listForSale([1n, SALE_PRICE]);
     const newPrice = parseEther("0.2");
     await asUser1.write.updateListing([1n, newPrice]);
-    const listing = await contract.read.listings([1n]);
+    const listing = await contract.read.listings([1n]) as [`0x${string}`, bigint, boolean];
     assert.equal(listing[1], newPrice);
   });
 
@@ -187,7 +187,7 @@ describe("NFTForge", async function () {
 
   it("EIP-2981 royaltyInfo returns correct values", async function () {
     const { contract, owner } = await deploy();
-    const [receiver, amount] = await contract.read.royaltyInfo([1n, SALE_PRICE]);
+    const [receiver, amount] = await contract.read.royaltyInfo([1n, SALE_PRICE]) as [`0x${string}`, bigint];
     assert.equal(receiver, getAddress(owner.account.address));
     assert.equal(amount, (SALE_PRICE * ROYALTY_BPS) / 10_000n);
   });
